@@ -6,7 +6,7 @@ class LocationTest < ActiveSupport::TestCase
   end
 
   class ToS < LocationTest
-    def test_returns_the_name_of_the_location
+    test "returns the name of the location" do
       assert_equal @location.name, "#{@location}"
     end
   end
