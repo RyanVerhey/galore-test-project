@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Test Event
+  description: This is a test event
+  start_time: <%= DateTime.now %>
+  end_time: <%= DateTime.now + 1.hour %>
+  location: one
+
+two:
+  title: Another Test Event
+  description: This is another test event
+  start_time: <%= DateTime.now %>
+  end_time: <%= DateTime.now + 1.hour %>
+  location: two
