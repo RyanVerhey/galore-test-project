@@ -18,8 +18,8 @@
       <tr>
         <td><%= link_to event.title, event %></td>
         <td><%= event.location %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
+        <td><%= event.start_time_formatted %></td>
+        <td><%= event.end_time_formatted %></td>
         <td><%= link_to "More Info", event %></td>
       </tr>
     <% end %>
