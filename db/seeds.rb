@@ -26,24 +26,24 @@ udairy =
 
 Event.create(title: "East Wing Tour",
              description: "A tour of the East Wing of the White House. Pictures may be taken.",
-             start_time: DateTime.parse("2018/12/15 9:00:00"),
-             end_time: DateTime.parse("2018/12/15 12:00:00"),
+             start_time: DateTime.parse("2018/12/15 9:00:00 +0500"),
+             end_time: DateTime.parse("2018/12/15 12:00:00 +0500"),
              location: white_house)
 
 Event.create(title: "West Wing Tour",
              description: "A tour of the West Wing of the White House. No photography please.",
-             start_time: DateTime.parse("2018/12/19 9:00:00"),
-             end_time: DateTime.parse("2018/12/19 12:00:00"),
+             start_time: DateTime.parse("2018/12/19 9:00:00 +0500"),
+             end_time: DateTime.parse("2018/12/19 12:00:00 +0500"),
              location: white_house)
 
 Event.create(title: "Free Ice Cream Cone Giveaway!",
              description: "Giving away free ice cream codes because why not.",
-             start_time: DateTime.parse("2018/12/10 9:00:00"),
-             end_time: DateTime.parse("2018/12/10 17:00:00"),
+             start_time: DateTime.parse("2018/12/10 9:00:00 +0500"),
+             end_time: DateTime.parse("2018/12/10 17:00:00 +0500"),
              location: udairy)
 
 Event.create(title: "Dairy Cow Meet & Greet",
              description: "Meet and greet with the cows whose milk makes UDairy's delicious ice cream!",
-             start_time: DateTime.parse("2018/12/14 9:00:00"),
-             end_time: DateTime.parse("2018/12/14 17:00:00"),
+             start_time: DateTime.parse("2018/12/14 9:00:00 +0500"),
+             end_time: DateTime.parse("2018/12/14 17:00:00 +0500"),
              location: udairy)
