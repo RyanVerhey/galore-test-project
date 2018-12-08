@@ -9,6 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%# This allows for the use of controller and action specific CSS and JS %>
   <body class="<%= params[:controller] %> <%= params[:action] %>">
     <%= yield %>
   </body>
