@@ -1,0 +1,1 @@
+MAP_API_KEY = ENV['MAP_API_KEY']
