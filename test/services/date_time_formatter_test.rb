@@ -35,5 +35,9 @@ class DateTimeFormatterTest < ActiveSupport::TestCase
       formatted = DateTimeFormatter.format_date_time @date_time
       assert_equal "Saturday, December 8, 2018 at 12:00 PM +0000", formatted
     end
+
+    test "returns nil if passed nil" do
+      assert_nil DateTimeFormatter.format_date_time nil
+    end
   end
 end
