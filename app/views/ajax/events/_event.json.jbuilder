@@ -1,5 +1,6 @@
-json.extract! event, :id, :title, :description, :start_time, :end_time
-json.url api_event_url(event, format: :json)
+json.extract! event, :id, :title, :description
+json.start_time event.start_time_formatted_long
+json.end_time event.end_time_formatted_long
 json.location do
-  json.partial! "api/locations/location", location: event.location, simple: true
+  json.partial! "ajax/locations/location", location: event.location
 end
