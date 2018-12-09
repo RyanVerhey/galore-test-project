@@ -1,0 +1,28 @@
+<% event ||= Event.new %>
+
+<h1 id="event-title"><%= event.title %></h1>
+
+<p>
+  <strong>Location:</strong>
+  <span id="event-location"><%= event.location %></span>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <span id="event-description"><%= event.description %></span>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <span id="event-start-time"><%= event.start_time_formatted_long %></span>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <span id="event-end-time"><%= event.end_time_formatted_long %></span>
+</p>
+
+<% location = event.location || Location.new %>
+<div id="event-map">
+  <%= render 'shared/map', latitude: location.latitude, longitude: location.longitude %>
+</div>
