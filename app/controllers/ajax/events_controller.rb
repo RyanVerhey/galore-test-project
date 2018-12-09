@@ -1,5 +1,5 @@
 class Ajax::EventsController < AjaxController
-  before_action :set_location, only: :show
+  before_action :set_event, only: :show
 
   # GET /ajax/events/1.json
   def show
