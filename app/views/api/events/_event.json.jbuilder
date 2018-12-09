@@ -1,2 +1,4 @@
-json.extract! event, :id, :title, :description, :start_time, :end_time, :location_id, :created_at, :updated_at
-json.url event_url(event, format: :json)
+json.extract! event, :id, :title, :description, :start_time, :end_time
+json.location do
+  json.partial! "locations/location", location: event.location
+end
