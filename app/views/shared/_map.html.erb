@@ -1,11 +1,16 @@
 <div id="map-container">
   <div id="map"></div>
   <script>
-    var map;
+    var map, marker;
     function initMap() {
+      var eventLocation = {lat: <%= latitude %>, lng: <%= longitude %>};
       map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: <%= latitude %>, lng: <%= longitude %>},
+        center: eventLocation,
         zoom: 15
+      });
+      marker = new google.maps.Marker({
+        position: eventLocation,
+        map: map
       });
     }
   </script>
