@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   namespace :api, constraints: { format: 'json' } do
     resources :events, only: [:index, :show]
+    resources :locations, only: [:index, :show]
   end
 end
