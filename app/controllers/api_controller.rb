@@ -5,4 +5,15 @@ class ApiController < ApplicationController
     return true if request.format == :json
     head 406, content_type: 'text/html'
   end
+
+  def render_error(status, message)
+    error_json = {
+      error: {
+        code: status,
+        message: message
+      }
+    }
+
+    render json: error_json, status: status
+  end
 end
