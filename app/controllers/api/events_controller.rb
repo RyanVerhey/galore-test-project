@@ -14,10 +14,7 @@ class Api::EventsController < ApiController
   private
 
   def set_event
-    begin
-      @event = Event.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      # Event is nil
-    end
+    # So the event is nil when not found
+    @event = Event.where(id: params[:id]).first
   end
 end
