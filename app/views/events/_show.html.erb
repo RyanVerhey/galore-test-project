@@ -24,5 +24,9 @@
 
 <% location = event.location || Location.new %>
 <div id="event-map">
-  <%= render 'shared/map', latitude: location.latitude, longitude: location.longitude %>
+  <%= render 'shared/map' %>
+  <div class="hidden">
+    <span id="latitude"><%= location.latitude %></span>
+    <span id="longitude"><%= location.longitude %></span>
+  </div>
 </div>
