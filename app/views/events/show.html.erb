@@ -23,3 +23,5 @@
 </p>
 
 <%= link_to 'Back', events_path %>
+
+<%= render 'shared/map', latitude: @location.latitude, longitude: @location.longitude %>
