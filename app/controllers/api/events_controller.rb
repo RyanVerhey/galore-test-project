@@ -8,12 +8,17 @@ class Api::EventsController < ApiController
 
   # GET /api/events/1.json
   def show
+    render_error 404, "Event with ID #{ params[:id] } not found" if @event.nil?
   end
 
   private
 
   def set_event
-    @event = Event.find(params[:id])
-    @location = @event.location
+    begin
+      @event = Event.find(params[:id])
+      @location = @event.location
+    rescue ActiveRecord::RecordNotFound
+      # Event and location are nil
+    end
   end
 end
