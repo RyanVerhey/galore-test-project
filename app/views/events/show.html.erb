@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @event.title %></h1>
+
 <p>
-  <strong>Title:</strong>
-  <%= @event.title %>
+  <strong>Location:</strong>
+  <%= @event.location %>
 </p>
 
 <p>
@@ -12,17 +14,12 @@
 
 <p>
   <strong>Start time:</strong>
-  <%= @event.start_time %>
+  <%= @event.start_time_formatted_long %>
 </p>
 
 <p>
   <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
+  <%= @event.end_time_formatted_long %>
 </p>
 
 <%= link_to 'Back', events_path %>

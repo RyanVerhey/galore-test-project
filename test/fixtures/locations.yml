@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  name: The White House
   address_line_1: 1600 Pennsylvania Ave NW,
   city: Washington
   district: DC
@@ -9,6 +10,7 @@ one:
   longitude: -77.036465
 
 two:
+  name: UDairy Creamery
   address_line_1: 535 S College Ave
   city: Newark
   district: DE
