@@ -21,6 +21,7 @@ function setUpPopoutDetail(popoutDetail) {
   let buttonCloseElements = document.querySelectorAll("[data-close-button]");
   for (let element of buttonCloseElements) {
     element.addEventListener("click", e => {
+      e.preventDefault();
       // So child elements aren't effected, only the ones we want
       if (e.target === element) {
         popoutDetail.classList.add("hidden");
