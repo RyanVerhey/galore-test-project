@@ -3,40 +3,40 @@
   location = event.location || Location.new
 %>
 
-<h1 id="event-title"><%= event.title %></h1>
+<h1><%= link_to event.title, event, id: 'event-title', class: "data-field" %></h1>
 
 <table class="show-table">
   <tr>
     <td><strong>Location:</strong></td>
     <td>
-      <span id="location-name"><%= location %></span><br>
-      <span id="location-address-line-1"><%= location.address_line_1 %></span><br>
-      <span id="location-address-line-2">
+      <span class="data-field" id="location-name"><%= location %></span><br>
+      <span class="data-field" id="location-address-1"><%= location.address_line_1 %></span><br>
+      <span class="data-field" id="location-address-2">
         <%= location.address_line_2 %>
       </span><% if location.address_line_2 %><br><% end %>
-      <span id="location-city"><%= location.city %></span>,
-      <span id="location-district"><%= location.district %></span>
-      <span id="location-post-code"><%= location.post_code %></span>
+      <span class="data-field" id="location-city"><%= location.city %></span>,
+      <span class="data-field" id="location-district"><%= location.district %></span>
+      <span class="data-field" id="location-post-code"><%= location.post_code %></span>
     </td>
   </tr>
   <tr>
     <td><strong>Description:</strong></td>
-    <td id="event-description"><%= event.description %></td>
+    <td class="data-field" id="event-description"><%= event.description %></td>
   </tr>
   <tr>
     <td><strong>Start time:</strong></td>
-    <td id="event-start-time"><%= event.start_time_formatted_long %></td>
+    <td class="data-field" id="event-start-time"><%= event.start_time_formatted_long %></td>
   </tr>
   <tr>
     <td><strong>End time:</strong></td>
-    <td id="event-end-time"><%= event.end_time_formatted_long %></td>
+    <td class="data-field" id="event-end-time"><%= event.end_time_formatted_long %></td>
   </tr>
 </table>
 
 <div id="event-map">
   <%= render 'shared/map' %>
   <div class="hidden">
-    <span id="latitude"><%= location.latitude %></span>
-    <span id="longitude"><%= location.longitude %></span>
+    <span class="data-field" id="latitude"><%= location.latitude %></span>
+    <span class="data-field" id="longitude"><%= location.longitude %></span>
   </div>
 </div>
