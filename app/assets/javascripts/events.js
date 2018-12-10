@@ -3,32 +3,48 @@
 
 document.addEventListener("DOMContentLoaded", function() {
   if (document.getElementById("popout-detail") !== null) {
-    eventDetailPopup();
+    const edp = new EventDetailPopup("event-detail-link", "popout-detail", "close-button");
+    edp.run();
   }
 });
 
-function eventDetailPopup() {
-  let detailLinks = document.getElementsByClassName("event-detail-link"),
-      popoutDetail = document.getElementById("popout-detail"),
-      closeButton = document.getElementById("close-button");
-  for (let link of detailLinks) {
-    link.addEventListener("click", e => {
+class EventDetailPopup {
+  constructor(detailLinksClassName, popoutDetailIdName, closeButtonIdName) {
+    this.detailLinks = document.getElementsByClassName(detailLinksClassName);
+    this.popoutDetail = document.getElementById(popoutDetailIdName);
+    this.closeButton = document.getElementById(closeButtonIdName);
+  }
+
+  run() {
+    this.setupDetailPopupOpenEventListeners();
+    this.setupClosePopoutDetailEventListener();
+  }
+
+  setupDetailPopupOpenEventListeners() {
+    for (let link of this.detailLinks) {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+
+        let eventId = link.getAttribute("data-id");
+
+        this.popoutDetail.classList.remove("hidden");
+        initMap();
+      });
+    }
+  }
+
+  setupClosePopoutDetailEventListener() {
+    const closePopoutDetail = e => {
       e.preventDefault();
-      popoutDetail.classList.remove("hidden");
-      initMap();
+      this.popoutDetail.classList.add("hidden");
+    }
+
+    this.closeButton.addEventListener("click", closePopoutDetail);
+
+    this.popoutDetail.addEventListener("click", e => {
+      if (e.target === this.popoutDetail) {
+        closePopoutDetail(e);
+      }
     });
   }
-
-  const closePopoutDetail = e => {
-    e.preventDefault();
-    popoutDetail.classList.add("hidden");
-  }
-
-  closeButton.addEventListener("click", closePopoutDetail);
-
-  popoutDetail.addEventListener("click", e => {
-    if (e.target === popoutDetail) {
-      closePopoutDetail(e);
-    }
-  });
 }
