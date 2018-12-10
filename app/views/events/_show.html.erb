@@ -1,28 +1,38 @@
-<% event ||= Event.new %>
+<%
+  event ||= Event.new
+  location = event.location || Location.new
+%>
 
 <h1 id="event-title"><%= event.title %></h1>
 
-<p>
-  <strong>Location:</strong>
-  <span id="event-location"><%= event.location %></span>
-</p>
+<table class="show-table">
+  <tr>
+    <td><strong>Location:</strong></td>
+    <td>
+      <span id="location-name"><%= location %></span><br>
+      <span id="location-address-line-1"><%= location.address_line_1 %></span><br>
+      <span id="location-address-line-2">
+        <%= location.address_line_2 %>
+      </span><% if location.address_line_2 %><br><% end %>
+      <span id="location-city"><%= location.city %></span>,
+      <span id="location-district"><%= location.district %></span>
+      <span id="location-post-code"><%= location.post_code %></span>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Description:</strong></td>
+    <td id="event-description"><%= event.description %></td>
+  </tr>
+  <tr>
+    <td><strong>Start time:</strong></td>
+    <td id="event-start-time"><%= event.start_time_formatted_long %></td>
+  </tr>
+  <tr>
+    <td><strong>End time:</strong></td>
+    <td id="event-end-time"><%= event.end_time_formatted_long %></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Description:</strong>
-  <span id="event-description"><%= event.description %></span>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <span id="event-start-time"><%= event.start_time_formatted_long %></span>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <span id="event-end-time"><%= event.end_time_formatted_long %></span>
-</p>
-
-<% location = event.location || Location.new %>
 <div id="event-map">
   <%= render 'shared/map' %>
   <div class="hidden">

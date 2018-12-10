@@ -15,3 +15,11 @@ body.index table {
     }
   }
 }
+
+body.show table, table.show-table {
+  td {
+    vertical-align: top;
+    text-align: left;
+    padding: 5px 5px 0 0;
+  }
+}
