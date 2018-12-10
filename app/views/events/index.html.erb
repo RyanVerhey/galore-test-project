@@ -16,11 +16,11 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.title, event, class: "event-detail-link", data: { id: event.id } %></td>
+        <td><%= link_to event.title, event, data: { remote: true, type: :json } %></td>
         <td><%= event.location %></td>
         <td><%= event.start_time_formatted %></td>
         <td><%= event.end_time_formatted %></td>
-        <td><%= link_to "More Info", event, class: "event-detail-link", data: { id: event.id } %></td>
+        <td><%= link_to "More Info", event, data: { remote: true, type: :json } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,9 +28,9 @@
 
 <br>
 
-<div id="popout-detail" class="hidden">
+<div id="popout-detail" class="hidden" data-close-button>
   <div class="container">
-    <h1 id="close-button"><a href="#">X</a></h1>
+    <h1 id="close-button"><a href="#" data-close-button data-remote="true">X</a></h1>
     <%= render partial: 'events/show', locals: { event: nil } %>
   </div>
 </div>
