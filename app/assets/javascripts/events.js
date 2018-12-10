@@ -48,6 +48,10 @@ class EventDetailPopup {
     const closePopoutDetail = e => {
       e.preventDefault();
       this.popoutDetail.classList.add("hidden");
+      let fields = document.getElementsByClassName('data-field');
+      for (let field of fields) {
+        field.innerHTML = "";
+      }
     }
 
     this.closeButton.addEventListener("click", closePopoutDetail);
