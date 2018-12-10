@@ -11,10 +11,18 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function setUpPopoutDetail(popoutDetail) {
+  let popoutOpenElements = document.querySelectorAll("[data-show-popout]");
+  for (let element of popoutOpenElements) {
+    element.addEventListener('click', e => {
+      popoutDetail.classList.remove("hidden");
+    });
+  }
+
   document.body.addEventListener('ajax:success', e => {
     let jsonData = JSON.parse(e.detail[2].responseText);
     fillInEventDetails(jsonData);
-    popoutDetail.classList.remove("hidden");
+    document.getElementById('loading').classList.add('hidden');
+    document.getElementById('event-conatiner').classList.remove('hidden');
     initMap();
   });
 
@@ -25,6 +33,8 @@ function setUpPopoutDetail(popoutDetail) {
       // So child elements aren't effected, only the ones we want
       if (e.target === element) {
         popoutDetail.classList.add("hidden");
+        document.getElementById('loading').classList.remove('hidden');
+        document.getElementById('event-conatiner').classList.add('hidden');
         let fields = document.getElementsByClassName('data-field');
         for (let field of fields) {
           field.innerHTML = "";
