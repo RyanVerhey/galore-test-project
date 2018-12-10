@@ -16,14 +16,21 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.title, event %></td>
+        <td><%= link_to event.title, event, class: "event-detail-link", data: { id: event.id } %></td>
         <td><%= event.location %></td>
         <td><%= event.start_time_formatted %></td>
         <td><%= event.end_time_formatted %></td>
-        <td><%= link_to "More Info", event %></td>
+        <td><%= link_to "More Info", event, class: "event-detail-link", data: { id: event.id } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+<div id="popout-detail" class="hidden">
+  <div class="container">
+    <h1 id="close-button"><a href="#">X</a></h1>
+    <%= render partial: 'events/show', locals: { event: nil } %>
+  </div>
+</div>

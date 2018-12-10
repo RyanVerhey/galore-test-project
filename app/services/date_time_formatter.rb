@@ -8,6 +8,7 @@ module DateTimeFormatter
   end
 
   def self.format_date_time(time, compact: false)
+    return nil if time.nil?
     time.strftime date_time_format(compact: compact)
   end
 end

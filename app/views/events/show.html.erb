@@ -1,27 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @event.title %></h1>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time_formatted_long %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time_formatted_long %>
-</p>
-
+<%= render partial: 'show', locals: { event: @event } %>
+<br>
 <%= link_to 'Back', events_path %>
-
-<%= render 'shared/map', latitude: @location.latitude, longitude: @location.longitude %>

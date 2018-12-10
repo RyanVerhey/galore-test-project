@@ -24,6 +24,16 @@ udairy =
                   latitude: "39.665024",
                   longitude: "-75.750730")
 
+sears_tower_skydeck =
+  Location.create(name: "Sears (Willis) Tower Skydeck",
+                  address_line_1: "233 S Wacker Dr",
+                  address_line_2: "99th Floor",
+                  city: "Chicago",
+                  district: "IL",
+                  post_code: "60606",
+                  latitude: "41.878881",
+                  longitude: "-87.635913")
+
 Event.create(title: "East Wing Tour",
              description: "A tour of the East Wing of the White House. Pictures may be taken.",
              start_time: DateTime.parse("2018/12/15 9:00:00 +0500"),
@@ -47,3 +57,9 @@ Event.create(title: "Dairy Cow Meet & Greet",
              start_time: DateTime.parse("2018/12/14 9:00:00 +0500"),
              end_time: DateTime.parse("2018/12/14 17:00:00 +0500"),
              location: udairy)
+
+Event.create(title: "Chicago Skydeck Open House",
+             description: "Come and get some great views from the 99th floor of the Sears Tower!",
+             start_time: DateTime.parse("2019/1/18 9:00:00 +0600"),
+             end_time: DateTime.parse("2019/1/18 17:00:00 +0600"),
+             location: sears_tower_skydeck)

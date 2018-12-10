@@ -1,9 +1,13 @@
 <div id="map-container">
   <div id="map"></div>
   <script>
-    var map, marker;
     function initMap() {
-      var eventLocation = {lat: <%= latitude %>, lng: <%= longitude %>};
+      var map, marker,
+          eventLocation = {
+            lat: parseFloat(document.getElementById("latitude").innerHTML),
+            lng: parseFloat(document.getElementById("longitude").innerHTML)
+          };
+
       map = new google.maps.Map(document.getElementById('map'), {
         center: eventLocation,
         zoom: 15
@@ -14,6 +18,6 @@
       });
     }
   </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= MAP_API_KEY %>&callback=initMap"
-  async defer></script>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= MAP_API_KEY %>&callback=initMap"
+  async defer></script>
